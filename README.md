@@ -2,14 +2,14 @@ http://huziketang.com/books/react/lesson14
 React.js小书学习笔记
 
 
-#React环境配置最简单方法： 使用create-react-app（最新版本默认不处理sass和less需要自己添加配置）
+# React环境配置最简单方法： 使用create-react-app（最新版本默认不处理sass和less需要自己添加配置）
 安装：npm install -g create-react-ap
 构建项目： create-react-app project-name
 npm config set registry https://registry.npm.taobao.org更换为淘宝源
 cd project-name
 npm start
 
-#JSX原理：
+# JSX原理：
 HTMl标签包括三部分：tag，attributes,children
 js可以用对象来表示HTML标签。
 编译的过程会把类似 HTML 的 JSX 结构转换成 JavaScript 的对象结构。
@@ -21,7 +21,7 @@ js可以用对象来表示HTML标签。
 4)react-dom 负责把这个用来描述 UI 信息的 JavaScript 对象变成 DOM 元素，并且渲染到页面上。
 
 
-render方法：
+# render方法：
 一个组件类必须要实现一个 render 方法，这个 render 方法必须要返回一个 JSX 元素。但这里要注意的是，必须要用一个外层的 JSX 元素把所有内容包裹起来。返回并列多个 JSX 元素是不合法的
 ```
 render () {
@@ -42,7 +42,7 @@ class和for为JavaScript保留字，因此JSX中class用className代替，for用
 组件嵌套组合构成组件树
 
 
-#事件
+# 事件
 为 React 的组件添加事件监听是很简单的事情，你只需要使用 React.js 提供了一系列的 on* 方法即可。
 
 React.js 会给每个事件监听传入一个 event 对象，这个对象提供的功能和浏览器提供的功能一致，而且它是兼容所有浏览器的。
@@ -66,7 +66,7 @@ class Dog extends Component {
   }
 }
 ```
-
+# setState
 组件状态必须由setState方法改变。
 setState 方法由父类Component所提供。当我们调用这个函数的时候，React.js 会更新组件的状态 state ，并且重新调用 render 方法，然后再把 render 方法所渲染的最新的内容显示到页面上。它接受一个对象或者函数作为参数。
 
@@ -76,6 +76,7 @@ setState后React不会立刻更新而是放入缓存统一更新，因此多次�
 
 state存储数据props传递参数
 
+# props
 props是一个对象，组件的所有属性都是props对象中键值对
 static defaultProps = {
 }
@@ -86,6 +87,6 @@ props传入后为只读，不可变
 3.可以通过给组件添加类属性 defaultProps 来配置默认参数。
 4.props 一旦传入，你就不可以在组件内部对它进行修改。但是你可以通过父组件主动重新渲染的方式来传入新的 props，从而达到更新的效果。
 
-
+# 列表渲染
 如果你往 {} 放一个数组，React.js 会帮你把数组里面一个个元素罗列并且渲染出来
 对于用表达式套数组罗列到页面上的元素，都要为每个元素加上 key 属性，这个 key 必须是每个元素唯一的标识。一般来说，key 的值可以直接后台数据返回的 id，因为后台的 id 都是唯一的。
