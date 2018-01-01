@@ -1,0 +1,30 @@
+.input-wraper {
+  align-items: flex-start;
+}
+.input-user {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  input {
+    width: 76%;
+  }
+}
+.input-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  textarea {
+    width: 76%;
+  }
+}
+.input-button {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  button {
+    background-color: dodgerblue;
+    padding: 2px 10px;
+  }
+
+
+}
