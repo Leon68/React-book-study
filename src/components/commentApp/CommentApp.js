@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import ComentInput from '../commentInput/CommentInput'
-import ComentList from '../commentList/CommentList'
+import ComentInput from './commentInput/CommentInput'
+import ComentList from './commentList/CommentList'
 
 import './commentApp.scss'
 
