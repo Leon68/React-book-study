@@ -2,8 +2,7 @@ class Post extends Component {
     constructor() {
         super()
         this.state = {
-            loading: true,
-            content: ''
+            loading: '数据加载中...',
         }
     }
     componentWillMount() {
@@ -11,25 +10,19 @@ class Post extends Component {
     }
     handleGetPostData() {
         this.setState({
-            loading: true,
-            content: ''
+            loading: '数据加载中...',
         })
         getPostData().then((postContent) => {
-            if (postContent) {
                 this.setState({
-                    loading: false,
-                    content: postContent
+                    loading: postContent,
                 })
-            }
         })
     }
     render () {
         return (
             <div>
-                <div className='post-content'>
-                    { this.state.loading? '数据加载中...' : this.state.content }
-                </div>
-                <button onChange={this.handleGetPostData.bind(this)}>刷新</button>
+                <div className='post-content'>{ this.state.loading }</div>
+                <button onClick={this.handleGetPostData.bind(this)}>刷新</button>
             </div>
         )
     }
