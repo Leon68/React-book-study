@@ -13,6 +13,9 @@ class CommentApp extends Component {
         }
 
     }
+    componentDidMount() {
+
+    }
     handleSubmitComment(comment) {
         if (!comment) return
         if (!comment.username) return alert('请输入用户名')

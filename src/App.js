@@ -5,6 +5,7 @@ import './App.css';
 import LessonsList from "./components/Title/Title";
 import CommentApp from "./components/commentApp/CommentApp";
 import PercentageApp from "./components/percentageshower/PercentageApp";
+import Post from "./components/ref/Post";
 
 const lessons = [
     { title: 'Lesson 1: title', description: 'Lesson 1: description' },
@@ -20,6 +21,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
+          <Post/>
           <LikeButton />
           <PercentageApp/>
           <LessonsList lessons={ lessons }/>

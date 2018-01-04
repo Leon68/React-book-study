@@ -1,8 +1,12 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 
 import './index.scss'
 
 class CommentInput extends Component {
+    static propTypes = {
+        onSubmit: PropTypes.func
+    }
     constructor() {
         super()
         this.state= {
@@ -10,11 +14,33 @@ class CommentInput extends Component {
             content: '',
         }
     }
+    componentWillMount(){
+        this._loadUsername()
+    }
+    componentDidMount(){
+        this.textarea.focus()
+    }
+
+    _saveUsername(username){
+        localStorage.setItem('username', username)
+    }
+    _loadUsername(){
+        const username = localStorage.getItem('username')
+        if(username){
+            this.setState({username})
+        }
+    }
+
     handleUsernameChange(event) {
         this.setState({
             username: event.target.value
         })
     }
+    handleUsernameBlur(event) {
+        this._saveUsername(event.target.value)
+
+    }
+
     handleContentChange(event) {
         this.setState({
             content: event.target.value
@@ -34,6 +60,7 @@ class CommentInput extends Component {
                     <label htmlFor="comment-input-user">用户名: </label>
                     <input
                         onChange={ this.handleUsernameChange.bind(this)}
+                        onBlur={this.handleUsernameBlur.bind(this)}
                         value={this.state.username}
                         id="comment-input-user" type="text"/>
                 </div>
@@ -42,6 +69,7 @@ class CommentInput extends Component {
                     <textarea
                         onChange={ this.handleContentChange.bind(this)}
                         value={this.state.content}
+                        ref={(textarea) => this.textarea = textarea}
                         name="content" id="comment-inpurt-content" cols="30" rows="10" />
                 </div>
                 <div className="input-button">
