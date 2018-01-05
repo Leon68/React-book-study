@@ -24,7 +24,7 @@ class App extends Component {
           <Post/>
           <LikeButton />
           <PercentageApp/>
-          <LessonsList lessons={ lessons }/>
+          {/*<LessonsList lessons={ lessons }/>*/}
           <CommentApp/>
       </div>
     );
